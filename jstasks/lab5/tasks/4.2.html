@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
+    <title>Session Storage</title>
+    <script type="text/javascript">
+        StorageMaster = new Object();
+    
+        StorageMaster.setRegistration = function () {
+        this.kursNow = "";
+        this.topCount = document.interest.elements.length;
+        for (var count = 0; count < this.topCount; count++) {
+            if (document.interest.elements[count].checked) {
+            this.kursNow = document.interest.hobby[count - 2].value;
+            }
+        }
+        sessionStorage.setItem("uName", document.interest.userName.value);
+        sessionStorage.setItem("uHobby", this.kursNow);
+        sessionStorage.setItem("uState", document.interest.resState.value);
+        }
+    
+        StorageMaster.getReg = function () {
+        userProfile = "Данные о пользователе:\n";
+        nameNow = sessionStorage.getItem("uName") + "\n";
+        kursNow = sessionStorage.getItem("uHobby") + "\n";
+        stateNow = sessionStorage.getItem("uState") + "\n";
+        fileLength = sessionStorage.length + " записи о пользователе";
+        this.profile = userProfile + nameNow + kursNow + stateNow + fileLength;
+        document.getElementById("profile").innerHTML = this.profile;
+        }
+        StorageMaster.clearReg = function () {
+        sessionlStorage.clear();
+        alert("Локальное хранилище очищено");
+        }
+    </script>
+</head>
+<body>
+    <hgroup>
+        <h2>
+            <a class="lab">
+                Лабораторная работа по JavaScript №5
+            </a>
+        </h2>
+    </hgroup>
+    <nav>
+        <p style="margin-top: 0px;">
+        <a href="../index4.html" style="color:rgb(0, 0, 0)">Обратно к заданию</a>
+        </p>
+    </nav>
+    <article class="first1">
+        <h3>
+            <div class="inner" bis_skin_checked="1">
+                <h1>Заполните анкету</h1>
+            <article>                
+                <h2>Выбор курса</h2>            
+                <section>
+                <form name="interest">
+					&nbsp;Имя<br>
+                    <input name="userName" placeholder="Введите имя">					
+					<div id="hobbyTable" bis_skin_checked="1">
+                    <section id="getHobby">
+                        <fieldset>
+                        <legend>Какой курс Вы выбираете?</legend>
+                        <label>
+                            <input type="radio" name="hobby" value="Информационные системы">
+                            Информационные системы</label>
+                        <br>
+                        <label>
+                            <input type="radio" name="hobby" value="Информатика">
+                            Информатика</label>
+                        <br>
+                        <label>
+                            <input type="radio" name="hobby" value="История">
+                            История </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="hobby" value="Математика">
+                            Математика</label>
+                        <br>
+                        <label>
+                            <input type="radio" name="hobby" value="Философия">
+                            Философия</label>
+                        <br>
+                        </fieldset>
+                    </section>
+					</div>
+					&nbsp;Группа<br>
+					<input type="text" name="resState" placeholder="Группа">
+					<br>
+                    <input type="button" onclick="StorageMaster.setRegistration()" value="Регистрация">
+                    <input type="button" onclick="StorageMaster.getReg()" value="Найти информацию">
+                    <input type="button" onclick="StorageMaster.clearReg()" value="Очистить форму">
+                </form>
+                </section>
+                <br>
+                <pre id="profile"></pre>
+            </article>
+        </div>
+        </h3>
+    </article>
+</body>
+</html>

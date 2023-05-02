@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>example-13-1-2</title>
+    <meta charset="utf-8" />
+    <script src="js/jquery-1.5.2.min.js"></script>
+    <script src="js/jquery.jqplot.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/jquery.jqplot.min.css" />
+    <script>
+        $(function() {
+            line1 = [
+                [24, 36742],
+                [25, 36058],
+                [26, 36128],
+                [27, 36464],
+                [28, 34972],
+                [29, 31869],
+                [30, 33550],
+                [31, 32232],
+            ];
+
+            $.jqplot("graph", [line1], {
+                title: "Курс биткоина к доллару с 24 по 30 января 2016 года",
+                axes: {
+                    yaxis: {
+                        min: 31000,
+                        max: 39000,
+                    },
+                    xaxis: {
+                        min: 24,
+                        max: 31,
+                    },
+                },
+                series: [{
+                    color: "grey",
+                    label: "Bitcoin",
+                }, ],
+                legend: {
+                    show: true,
+                    location: "ne",
+                    xoffset: 10,
+                    yoffset: 10,
+                },
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="graph" style="height: 400px; width: 600px; margin-left: 33%"></div>
+</body>
+
+</html>

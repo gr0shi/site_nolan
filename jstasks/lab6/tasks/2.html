@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Diag</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/jquery.jqplot.min.css" />
+    <script type="text/javascript" src="js/plugins/jqplot.pieRenderer.min.js"></script>
+    <script>
+        $(function() {
+            line1 = [
+                ["Toyota", 7],
+                ["Ford", 4],
+                ["AUDI", 3],
+                ["BMW", 6],
+                ["Volkswagen", 8],
+                ["NISSAN", 5],
+            ];
+            $.jqplot("diag", [line1], {
+                title: "Рынок автомобилей на 2010 год",
+                seriesDefaults: {
+                    renderer: $.jqplot.PieRenderer,
+                    rendererOptions: {
+                        sliceMargin: 15,
+                    },
+                },
+                legend: {
+                    show: true,
+                },
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="diag" style="height: 400px; width: 600px; margin-left: 33%"></div>
+</body>
+
+</html>

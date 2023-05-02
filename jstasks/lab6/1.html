@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet" />
+    <script src="js/jquery-1.5.2.min.js"></script>
+    <script src="js/jquery.jqplot.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+    <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="js/jqplot.pieRenderer.min.js"></script>
+    <script>
+        $(function() {
+            line1 = [
+                [16, 36742],
+                [17, 36058],
+                [18, 36128],
+                [19, 36464],
+                [20, 34972],
+                [21, 31869],
+                [22, 33550],
+                [23, 32232],
+            ];
+
+            $.jqplot("graph", [line1], {
+                title: "Курс биткоина к доллару с 16 по 23 января 2020 года",
+                axes: {
+                    yaxis: {
+                        min: 31000,
+                        max: 39000,
+                    },
+                    xaxis: {
+                        min: 16,
+                        max: 24,
+                    },
+                },
+                series: [{
+                    color: "red",
+                    label: "Bitecoin",
+                }, ],
+                legend: {
+                    show: true,
+                    location: "ne",
+                    xoffset: 10,
+                    yoffset: 10,
+                },
+            });
+        });
+    </script>
+    <title>Graph</title>
+</head>
+
+<body>
+    <hgroup>
+        <h2>
+            <a class="lab"> Лабораторная работа по JavaScript №6 </a>
+        </h2>
+    </hgroup>
+    <nav>
+        <p style="margin-top: 0px">
+            <a href="index.html" style="color: rgb(0, 0, 0)">Главная страница</a>
+            <br />
+            <a href="1.html">График</a>
+            <a href="2.html">Круговая диаграмма</a>
+        </p>
+    </nav>
+    <article class="first1">
+        <h3>
+            <a class="task"> График </a>
+            <br />
+            <a class="button1" href="tasks/1.html" target="_blank">Результат</a
+        >
+      </h3>
+    </article>
+  </body>
+</html>
